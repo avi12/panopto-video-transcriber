@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Panopto Transcriber",
+  "version": "0.0.0",
+  "content_scripts": [
+    {
+      "matches": ["https://*.panopto.eu/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "permissions": [
+    "offscreen",
+    "downloads",
+    "webRequest",
+    "storage"
+  ],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'"
+  }
+}
